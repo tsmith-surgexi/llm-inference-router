@@ -1,0 +1,27 @@
+# config.example.yaml — copy to config.yaml and wire in your own endpoints.
+# Placeholders only. No real endpoints, keys, or model names belong in this file.
+tiers:
+  - name: local-primary
+    endpoint: http://localhost:8000/v1
+    cost_per_1k: 0.0
+    capabilities: [chat, vision]
+    timeout_s: 30
+
+  - name: specialized
+    endpoint: ${SPECIALIZED_ENDPOINT}
+    cost_per_1k: 0.0
+    capabilities: [chat, reasoning]
+    timeout_s: 45
+
+  - name: cloud-fallback
+    endpoint: https://api.your-cloud-provider.com/v1
+    api_key: ${CLOUD_API_KEY}
+    cost_per_1k: 3.0
+    capabilities: [chat, vision, reasoning]
+    timeout_s: 60
+
+routing:
+  strategy: cost_then_capability
+  circuit_breaker:
+    failure_threshold: 3
+    cooldown_s: 120
