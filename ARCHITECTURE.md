@@ -12,7 +12,7 @@ creates three failure modes at once:
 - **Availability** — one provider outage or rate-limit window takes the whole
   product down. There is no second path.
 - **Cost** — every request, however trivial, hits the most capable (and most
-  expensive) model. A "what's 2+2"-class prompt pays GPT-4-class prices.
+  expensive) model. A "what's 2+2"-class prompt pays frontier-model prices.
 - **Privacy & latency** — sensitive or latency-critical traffic is shipped to a
   remote API when a local model could have served it faster and on-prem.
 
