@@ -1,3 +1,4 @@
+<!-- Copyright © 2026 SurgeXi Business Intelligence, a Teamsmith Enterprises LLC company. All Rights Reserved. -->
 # Architecture & Case Study — Tiered LLM Inference Router
 
 > A reference write-up of a routing layer I designed and run in production AI

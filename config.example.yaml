@@ -1,3 +1,4 @@
+# Copyright © 2026 SurgeXi Business Intelligence, a Teamsmith Enterprises LLC company. All Rights Reserved.
 # config.example.yaml — copy to config.yaml and wire in your own endpoints.
 # Placeholders only. No real endpoints, keys, or model names belong in this file.
 tiers:

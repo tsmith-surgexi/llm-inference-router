@@ -1,3 +1,4 @@
+# Copyright © 2026 SurgeXi Business Intelligence, a Teamsmith Enterprises LLC company. All Rights Reserved.
 """Minimal, runnable reference for tiered LLM routing.
 
 Loads a tier config, classifies a request, and picks the cheapest *healthy*
