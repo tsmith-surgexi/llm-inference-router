@@ -4,7 +4,7 @@
 > A health-aware, cost-optimized **tiered LLM routing pattern** — route each request to the cheapest capable model, fall back gracefully when a tier is unavailable, and never let a single provider outage take the system down.
 
 [![ci](https://github.com/tsmith-surgexi/llm-inference-router/actions/workflows/ci.yml/badge.svg)](https://github.com/tsmith-surgexi/llm-inference-router/actions/workflows/ci.yml)
-[![license: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![license: source-available](https://img.shields.io/badge/license-source--available-blue.svg)](LICENSE)
 [![python](https://img.shields.io/badge/python-3.12-blue.svg)](requirements.txt)
 
 This is a **reference implementation** of a production pattern I use in real platforms. It is intentionally generic: it ships with placeholder tiers so you can wire in your own models. No proprietary model weights, prompts, or routing policy are included.
