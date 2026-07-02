@@ -37,12 +37,13 @@ flowchart TD
 
 ## Features
 
-- **Priority-based routing** — ordered tiers with per-tier capability tags
-- **Active health checks** — unhealthy tiers are skipped, not retried into the ground
-- **Cost-aware escalation** — only promote to a pricier tier when the cheaper one can't serve the request
-- **Circuit breaker** — auto-disable a flapping tier for a cooldown window
-- **Pluggable backends** — local (OpenAI-compatible), self-hosted, or cloud APIs behind one interface
-- **Structured telemetry** — per-tier latency, cost, and fallback-rate metrics
+- **Priority-based routing** — ordered tiers with per-tier capability tags *(tested)*
+- **Active health checks** — unhealthy tiers are skipped, not retried into the ground *(tested)*
+- **Cost-aware escalation** — only promote to a pricier tier when the cheaper one can't serve the request *(tested)*
+- **Circuit breaker** — a flapping tier is auto-disabled after `failure_threshold` failures and re-admitted after a cooldown window *(tested)*
+- **Pluggable backend interface** — `Tier.health_check()` and `Tier.generate()` are the two seams you override to wire in a real backend (local OpenAI-compatible, self-hosted, or cloud). The reference ships them stubbed so the pattern runs with no external services; `tests/` overrides them with in-memory stubs
+
+The behaviour above is proven end-to-end by the suite in [`tests/`](tests/) — the fallback and breaker paths are exercised against scripted stub tiers, no network required.
 
 ## Quick start
 
@@ -93,6 +94,7 @@ The router never assumes a tier is up. Each request path runs a fast health prob
 
 - [ ] Semantic request classification for smarter tier selection
 - [ ] Per-tenant routing policies
+- [ ] Structured telemetry — per-tier latency, cost, and fallback-rate metrics
 - [ ] Prometheus exporter for the telemetry stream
 
 ## Architecture & case study
