@@ -20,6 +20,10 @@ jobs:
           pip install -r requirements.txt
           pip install ruff pytest
       - name: Lint
-        run: ruff check router
+        run: ruff check router tests
+      - name: Tests (fully stubbed — no external services)
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: pytest -q
       - name: Smoke test (runs built-in demo, no external services)
         run: python -m router.serve
