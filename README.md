@@ -1,13 +1,13 @@
 <!-- Copyright © 2026 SurgeXi Business Intelligence, a Teamsmith Enterprises LLC company. All Rights Reserved. -->
 # 🧭 llm-inference-router
 
-> A health-aware, cost-optimized **tiered LLM routing pattern** — route each request to the cheapest capable model, fall back gracefully when a tier is unavailable, and never let a single provider outage take the system down.
+> **Infrastructure depth for LLM serving** — a health-aware, cost-optimized tiered routing pattern: route each request to the cheapest capable model, fall back gracefully when a tier is unavailable, and never let a single provider outage take the system down.
 
 [![ci](https://github.com/tsmith-surgexi/llm-inference-router/actions/workflows/ci.yml/badge.svg)](https://github.com/tsmith-surgexi/llm-inference-router/actions/workflows/ci.yml)
 [![license: source-available](https://img.shields.io/badge/license-source--available-blue.svg)](LICENSE)
 [![python](https://img.shields.io/badge/python-3.12-blue.svg)](requirements.txt)
 
-This is a **reference implementation** of a production pattern I use in real platforms. It is intentionally generic: it ships with placeholder tiers so you can wire in your own models. No proprietary model weights, prompts, or routing policy are included.
+**What this demonstrates.** The serving-layer plumbing that keeps an AI platform cheap and up: priority-based routing across a prioritized model pool, active health checks that skip unhealthy tiers, cost-aware escalation that only promotes to a pricier tier when the cheaper one can't serve, and a circuit breaker that auto-disables a flapping tier and re-admits it after a cooldown. A generic **reference implementation** of a production pattern I use in real platforms — it ships with placeholder tiers so you can wire in your own models; no proprietary weights, prompts, or routing policy are included. Configuration and quick start are below.
 
 ---
 
